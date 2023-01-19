@@ -3,6 +3,8 @@ table {
 }
 th {
   text-transform: capitalize;
+  font-weight: bold;
+  color: black;
 }
 .table-container {
   display: flex;

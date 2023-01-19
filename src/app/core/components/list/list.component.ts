@@ -35,19 +35,10 @@ export class ListComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-  openCardDialog(elem: any) {
-    console.log('ele', elem['id']);
+  openCardDialog(selectedRecord: RecordModel) {
     const dialogRef = this.dialog.open(RecordComponent, {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
-      panelClass: 'full-screen-modal',
       data: {
-        record: elem,
-        buttonText: {
-          cancel: 'Close',
-        },
+        recordId: selectedRecord.id,
       },
     });
   }

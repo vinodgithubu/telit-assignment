@@ -6,6 +6,8 @@ import { RecordModel } from '../models/record';
 })
 export class RecordService {
   private record: RecordModel = {
+    id: '555555555555555555555555',
+    terminalId: 'B0129D9A',
     carrier: 'Vodafone',
     dateActivated: '2021-07-08T15:14:05Z',
     dateAdded: '2014-08-25T10:49:14Z',
@@ -14,7 +16,6 @@ export class RecordService {
     hasSmsUsage: true,
     hasVoiceUsage: true,
     iccid: '89000000000000001280',
-    id: '555555555555555555555555',
     identity: 'ICCID: 89000000000000001280',
     imei: '300000000000008',
     imsi: '310000000000008',
@@ -34,15 +35,11 @@ export class RecordService {
     msisdn: '5555555551',
     status: 'activated',
     tags: ['has_imei', 'has_imsi', 'has_iccid', 'has_msisdn'],
-    terminalId: 'B0129D9A',
   };
   private recordList: RecordModel[] = [];
   private headerKeys: string[] = [];
   constructor() {
-    for (let i = 0; i < 10; i++) {
-      let rr = { ...this.record, id: (i + 1).toString() };
-      this.recordList.push(rr);
-    }
+    this.addRecordsToList(22);
     this.headerKeys = Object.keys(this.record);
   }
 
@@ -57,5 +54,11 @@ export class RecordService {
   }
   getRecordById(id: string): RecordModel | undefined {
     return this.recordList.find((x) => x.id === id);
+  }
+  addRecordsToList(NoOfRecords = 10) {
+    for (let i = 0; i < NoOfRecords; i++) {
+      let rr = { ...this.record, id: (i + 1).toString() };
+      this.recordList.push(rr);
+    }
   }
 }

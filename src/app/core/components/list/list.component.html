@@ -200,7 +200,13 @@
           </button>
         </ng-container>
         <ng-container *ngSwitchDefault>
-          {{ element[column] }}
+          <span *ngIf="column.includes('date')">
+            {{ element[column] | date }}
+          </span>
+
+          <span *ngIf="!column.includes('date')">
+            {{ element[column] }}
+          </span>
         </ng-container>
       </td>
     </ng-container>
@@ -212,6 +218,6 @@
 <mat-paginator
   [pageSizeOptions]="[10, 20, 50, 100]"
   showFirstLastButtons
-  aria-label="Select page of periodic elements"
+  aria-label="Select page of records"
 >
 </mat-paginator>

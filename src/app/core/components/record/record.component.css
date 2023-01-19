@@ -1,3 +1,13 @@
 .transparent {
   background: rgba(0, 0, 0, 0);
 }
+.recordCard {
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 20px;
+}
+.record-key {
+  margin-right: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+}

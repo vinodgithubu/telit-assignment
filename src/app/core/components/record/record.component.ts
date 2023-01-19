@@ -8,28 +8,21 @@ import { RecordService } from '../../services/record.service';
   styleUrls: ['./record.component.css'],
 })
 export class RecordComponent {
-  record: object = {};
-  cancelButtonText = 'Cancel';
+  record = {};
   constructor(
     private _recordService: RecordService,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<RecordComponent>
   ) {
     if (data) {
-      if (data) {
-        console.log('hhhh', data.record);
-        this.record = data.record;
-        this.openRecord(data.record.id);
-      }
-      if (data.buttonText) {
-        this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
+      if (data.recordId) {
+        this.openRecord(data.recordId);
       }
     }
-    // this.dialogRef.updateSize('60vw', '50vw');
   }
 
   openRecord(id: string) {
-    console.log(this._recordService.getRecordById(id));
+    this.record = this._recordService.getRecordById(id) || {};
   }
   onConfirmClick(): void {
     this.dialogRef.close(true);
