@@ -36,18 +36,18 @@ export class RecordService {
     tags: ['has_imei', 'has_imsi', 'has_iccid', 'has_msisdn'],
     terminalId: 'B0129D9A',
   };
-  private recordList: RecordModel[]=[];
+  private recordList: RecordModel[] = [];
   private headerKeys: string[] = [];
   constructor() {
-    for(let i = 0;i<10;i++) {
-      let rr = {...this.record ,id:(i+1).toString()}
+    for (let i = 0; i < 10; i++) {
+      let rr = { ...this.record, id: (i + 1).toString() };
       this.recordList.push(rr);
     }
     this.headerKeys = Object.keys(this.record);
   }
 
   getRecordHeaders(): string[] {
-    return ["view",...this.headerKeys];
+    return ['view', ...this.headerKeys];
   }
   getRecordKeys(): string[] {
     return this.headerKeys;
@@ -55,7 +55,7 @@ export class RecordService {
   getRecords(): RecordModel[] {
     return this.recordList;
   }
-  getRecordById(id:string): RecordModel | undefined {
-    return this.recordList.find(x=> x.id === id);
+  getRecordById(id: string): RecordModel | undefined {
+    return this.recordList.find((x) => x.id === id);
   }
 }
