@@ -1,0 +1,43 @@
+<mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close tabindex="-1">
+      {{ cancelButtonText }}
+    </button>
+  </mat-dialog-actions>
+  <ol
+    *ngFor="let item of record | keyvalue; index as i"
+    style="margin-top: 10px"
+  >
+    <li
+      style="
+        font-size: 17px;
+        background-color: gray;
+        margin-left: 100px;
+        margin-right: 100px;
+        color: white;
+        padding: 10px;
+        font-style: oblique;
+      "
+    >
+      {{ i + 1 }}.
+      <span>
+        {{ item.key }}
+        <span style="margin-left: 1%; margin-right: 1%"> : </span>
+        {{ item.value }}
+      </span>
+    </li>
+  </ol>
+</mat-dialog-content>
+
+<!-- 
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>Close me by clicking outside </p>
+  <mat-form-field>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div> -->
